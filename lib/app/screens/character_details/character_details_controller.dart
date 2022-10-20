@@ -1,14 +1,16 @@
 import 'package:get/get.dart';
 import 'package:star_wars_w2o/app/models/character_model.dart';
-import 'package:star_wars_w2o/app/models/planet_model.dart';
 import 'package:star_wars_w2o/app/models/starship_model.dart';
 import 'package:star_wars_w2o/app/repository/planet_repository/planet_repository_impl.dart';
 import 'package:star_wars_w2o/app/repository/starship_repository/starship_repository_impl.dart';
+
+import '../../models/planet_model.dart';
 
 class CharacterDetailsController extends GetxController with StateMixin {
   final CharacterModel arguments = Get.arguments;
   final planetRepository = PlanetRepositoryImpl(dio: Get.find());
   final starshipRepository = StarshipRepositoryImpl(dio: Get.find());
+  RxBool viewType = true.obs;
   List<PlanetModel> planets = [];
   List<StarshipModel> starships = [];
 

@@ -34,5 +34,9 @@ class ThemeConfig {
       focusedBorder: _defaultInputBorder,
       labelStyle: TextStyles.i.labelTextField,
     ),
+    dataTableTheme: DataTableThemeData(
+      dataTextStyle: TextStyles.i.textPrimaryFontRegular.copyWith(color: ColorsApp.i.primary, fontSize: 12),
+      headingTextStyle: TextStyles.i.textPrimaryFontRegular.copyWith(color: ColorsApp.i.primary, fontSize: 12),
+    ),
   );
 }
