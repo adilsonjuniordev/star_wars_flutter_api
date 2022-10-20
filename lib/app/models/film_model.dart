@@ -18,7 +18,7 @@ class FilmModel {
     return <String, dynamic>{
       'title': title,
       'director': director,
-      'releaseDate': releaseDate,
+      'release_date': releaseDate,
       'producer': producer,
     };
   }
@@ -27,7 +27,7 @@ class FilmModel {
     return FilmModel(
       title: (map['title'] ?? '') as String,
       director: (map['director'] ?? '') as String,
-      releaseDate: (map['releaseDate'] ?? '') as String,
+      releaseDate: (map['release_date'] ?? '') as String,
       producer: (map['producer'] ?? '') as String,
     );
   }

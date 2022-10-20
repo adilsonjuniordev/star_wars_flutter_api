@@ -8,20 +8,31 @@ class SplashPage extends GetView<SplashController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.black,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(width: MediaQuery.of(context).size.width * .8, child: Image.asset('assets/images/logo.png')),
-              const SizedBox(height: 50),
-              LoadingAnimationWidget.fourRotatingDots(color: Colors.amber, size: 70),
-            ],
+    return Stack(
+      children: <Widget>[
+        Image.asset(
+          'assets/images/background_space.jpg',
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          fit: BoxFit.cover,
+        ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Container(
+            color: Colors.transparent,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(width: MediaQuery.of(context).size.width * .8, child: Image.asset('assets/images/logo.png')),
+                  const SizedBox(height: 50),
+                  LoadingAnimationWidget.horizontalRotatingDots(color: Colors.amber, size: 70),
+                ],
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

@@ -13,51 +13,64 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: FocusManager.instance.primaryFocus?.unfocus,
-      child: Scaffold(
-        body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Image.asset('assets/images/logo.png', scale: 2),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                width: MediaQuery.of(context).size.width * .9,
-                child: TextField(
-                  controller: searchEC,
-                  onChanged: (val) {
-                    controller.query.value = val;
-                  },
-                  style: context.textStyles.labelTextField,
-                  decoration: InputDecoration(
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        searchEC.clear();
-                        controller.query.value = '';
-                      },
-                      icon: Icon(Icons.clear, color: context.colors.greyDark, size: 20),
-                    ),
-                    hintText: 'Pesquisar personagem',
-                    hintStyle: context.textStyles.labelTextField,
-                    labelStyle: context.textStyles.labelTextField,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Expanded(
-                child: Obx(() {
-                  return controller.query.isEmpty
-                      ? customScrollView(onEndPage: controller.nextPage, chars: controller.characters)
-                      : customScrollView(onEndPage: controller.nextPageFiltered, chars: controller.charactersFiltered);
-                }),
-              ),
-            ],
-          ),
+    return Stack(
+      children: [
+        Image.asset(
+          'assets/images/background_space.jpg',
+          color: Colors.white.withOpacity(0.7),
+          colorBlendMode: BlendMode.modulate,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
         ),
-      ),
+        GestureDetector(
+          onTap: FocusManager.instance.primaryFocus?.unfocus,
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: SafeArea(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    child: Image.asset('assets/images/logo.png', scale: 2),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    width: MediaQuery.of(context).size.width * .9,
+                    child: TextField(
+                      controller: searchEC,
+                      onChanged: (val) {
+                        controller.query.value = val;
+                      },
+                      style: context.textStyles.labelTextField,
+                      decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            searchEC.clear();
+                            controller.query.value = '';
+                          },
+                          icon: Icon(Icons.clear, color: context.colors.greyDark, size: 20),
+                        ),
+                        hintText: 'Pesquisar personagem',
+                        hintStyle: context.textStyles.labelTextField,
+                        labelStyle: context.textStyles.labelTextField,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Expanded(
+                    child: Obx(() {
+                      return controller.query.isEmpty
+                          ? customScrollView(onEndPage: controller.nextPage, chars: controller.characters)
+                          : customScrollView(onEndPage: controller.nextPageFiltered, chars: controller.charactersFiltered);
+                    }),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 

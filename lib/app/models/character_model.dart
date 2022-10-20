@@ -18,6 +18,8 @@ class CharacterModel {
     required this.films,
   });
 
+
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,

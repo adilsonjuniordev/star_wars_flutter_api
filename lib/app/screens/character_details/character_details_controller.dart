@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:star_wars_w2o/app/models/character_model.dart';
+import 'package:star_wars_w2o/app/models/film_model.dart';
 import 'package:star_wars_w2o/app/models/starship_model.dart';
+import 'package:star_wars_w2o/app/repository/film_repository/film_repository_impl.dart';
 import 'package:star_wars_w2o/app/repository/planet_repository/planet_repository_impl.dart';
 import 'package:star_wars_w2o/app/repository/starship_repository/starship_repository_impl.dart';
 
@@ -8,11 +10,14 @@ import '../../models/planet_model.dart';
 
 class CharacterDetailsController extends GetxController with StateMixin {
   final CharacterModel arguments = Get.arguments;
-  final planetRepository = PlanetRepositoryImpl(dio: Get.find());
-  final starshipRepository = StarshipRepositoryImpl(dio: Get.find());
+  final _planetRepository = PlanetRepositoryImpl(dio: Get.find());
+  final _starshipRepository = StarshipRepositoryImpl(dio: Get.find());
+  final _filmRepository = FilmRepositoryImpl(dio: Get.find());
+
   RxBool viewType = true.obs;
   List<PlanetModel> planets = [];
   List<StarshipModel> starships = [];
+  RxList<FilmModel> films = <FilmModel>[].obs;
 
   RxString name = ''.obs;
   RxString gender = ''.obs;
@@ -27,6 +32,7 @@ class CharacterDetailsController extends GetxController with StateMixin {
     change(null, status: RxStatus.loading());
     await getPlanet();
     await getStarship();
+    await getFilms();
     name.value = arguments.name;
     gender.value = arguments.gender;
     birthYear.value = arguments.birthYear;
@@ -39,12 +45,16 @@ class CharacterDetailsController extends GetxController with StateMixin {
   }
 
   Future<void> getPlanet() async {
-    planets.addAll(await planetRepository.getPlanet(arguments.homeworld));
+    planets.addAll(await _planetRepository.getPlanet(arguments.homeworld));
   }
 
   Future<void> getStarship() async {
     if (arguments.starships.isNotEmpty) {
-      starships.addAll(await starshipRepository.getStarship(arguments.starships.first));
+      starships.addAll(await _starshipRepository.getStarship(arguments.starships.first));
     }
+  }
+
+  Future<void> getFilms() async {
+    films.addAll(await _filmRepository.getFilms(arguments.films));
   }
 }

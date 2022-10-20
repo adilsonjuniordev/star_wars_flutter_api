@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:star_wars_w2o/app/core/ui/styles/colors_app.dart';
 import 'package:star_wars_w2o/app/core/ui/styles/text_styles.dart';
-
-import '../../../screens/character_details/character_details_controller.dart';
 
 class InfoBox extends StatelessWidget {
   const InfoBox({
@@ -12,15 +11,16 @@ class InfoBox extends StatelessWidget {
     required this.body,
   });
 
-  final CharacterDetailsController controller;
+  final GetxController controller;
   final String title;
   final String body;
 
   @override
   Widget build(BuildContext context) {
-    const double borderWidth = 0.5;
-    const double borderRadius = 22;
-    final Color borderColor = context.colors.grey;
+    const double borderWidthTop = 0.3;
+    const double borderWidthBottom = 1.5;
+    const double borderRadius = 15;
+    final Color borderColor = context.colors.greyDark;
     return Column(
       children: [
         Container(
@@ -29,11 +29,13 @@ class InfoBox extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .8,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(borderRadius)),
-            border: Border.all(color: borderColor, width: borderWidth),
+            border: Border.all(color: borderColor, width: borderWidthTop),
+            color: context.colors.primary,
           ),
           child: Text(
+            textAlign: TextAlign.center,
             title,
-            style: context.textStyles.textSecondaryFontRegular.copyWith(color: context.colors.primary, fontSize: 16),
+            style: context.textStyles.textSecondaryFontRegular.copyWith(color: Colors.black, fontSize: 16),
           ),
         ),
         Container(
@@ -42,11 +44,15 @@ class InfoBox extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .8,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.vertical(bottom: Radius.circular(borderRadius)),
-            border: Border.all(color: borderColor, width: borderWidth),
+            border: Border.all(color: borderColor, width: borderWidthBottom),
           ),
           child: Text(
             body,
-            style: context.textStyles.textPrimaryFontRegular.copyWith(color: Colors.white, fontSize: 13),
+            textAlign: TextAlign.center,
+            style: context.textStyles.textPrimaryFontRegular.copyWith(
+              color: Colors.white,
+              fontSize: 13,
+            ),
           ),
         )
       ],
