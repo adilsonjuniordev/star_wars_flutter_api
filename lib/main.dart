@@ -1,16 +1,16 @@
 import 'package:get/get.dart';
-import 'app/core/config/env/env.dart';
 import 'package:flutter/material.dart';
-import 'package:star_wars_w2o/app/application/application_bindings.dart';
-import 'package:star_wars_w2o/app/core/ui/theme/theme_config.dart';
-import 'package:star_wars_w2o/app/screens/character_details/character_details_bindings.dart';
-import 'package:star_wars_w2o/app/screens/character_details/character_details_page.dart';
-import 'package:star_wars_w2o/app/screens/film_details/film_details_page.dart';
-import 'package:star_wars_w2o/app/screens/home/home_bindings.dart';
-import 'package:star_wars_w2o/app/screens/home/home_page.dart';
-import 'package:star_wars_w2o/app/screens/splash/splash_bindings.dart';
-import 'package:star_wars_w2o/app/screens/splash/splash_page.dart';
+import 'app/core/config/env/env.dart';
+import 'app/screens/home/home_page.dart';
+import 'app/screens/home/home_bindings.dart';
+import 'app/screens/splash/splash_page.dart';
+import 'app/core/ui/theme/theme_config.dart';
+import 'app/screens/splash/splash_bindings.dart';
+import 'app/application/application_bindings.dart';
+import 'app/screens/film_details/film_details_page.dart';
 import 'app/screens/film_details/film_details_bindings.dart';
+import 'app/screens/character_details/character_details_page.dart';
+import 'app/screens/character_details/character_details_bindings.dart';
 
 void main() async {
   await Env.i.load();

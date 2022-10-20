@@ -78,6 +78,7 @@ flutter:
     - family: DeathStar
       fonts:
         - asset: assets/fonts/DeathStar.ttf
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

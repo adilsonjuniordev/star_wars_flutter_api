@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:star_wars_w2o/app/models/film_model.dart';
+import '../../models/film_model.dart';
 
 class FilmDetailsController extends GetxController {
   List<dynamic> arguments = Get.arguments;

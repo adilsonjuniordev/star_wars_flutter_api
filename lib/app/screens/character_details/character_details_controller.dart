@@ -1,12 +1,11 @@
 import 'package:get/get.dart';
-import 'package:star_wars_w2o/app/models/character_model.dart';
-import 'package:star_wars_w2o/app/models/film_model.dart';
-import 'package:star_wars_w2o/app/models/starship_model.dart';
-import 'package:star_wars_w2o/app/repository/film_repository/film_repository_impl.dart';
-import 'package:star_wars_w2o/app/repository/planet_repository/planet_repository_impl.dart';
-import 'package:star_wars_w2o/app/repository/starship_repository/starship_repository_impl.dart';
-
 import '../../models/planet_model.dart';
+import '../../models/character_model.dart';
+import '../../models/film_model.dart';
+import '../../models/starship_model.dart';
+import '../../repository/film_repository/film_repository_impl.dart';
+import '../../repository/planet_repository/planet_repository_impl.dart';
+import '../../repository/starship_repository/starship_repository_impl.dart';
 
 class CharacterDetailsController extends GetxController with StateMixin {
   final CharacterModel arguments = Get.arguments;
@@ -44,9 +43,7 @@ class CharacterDetailsController extends GetxController with StateMixin {
     super.onInit();
   }
 
-  Future<void> getPlanet() async {
-    planets.addAll(await _planetRepository.getPlanet(arguments.homeworld));
-  }
+  Future<void> getPlanet() async => planets.addAll(await _planetRepository.getPlanet(arguments.homeworld));
 
   Future<void> getStarship() async {
     if (arguments.starships.isNotEmpty) {
@@ -54,7 +51,5 @@ class CharacterDetailsController extends GetxController with StateMixin {
     }
   }
 
-  Future<void> getFilms() async {
-    films.addAll(await _filmRepository.getFilms(arguments.films));
-  }
+  Future<void> getFilms() async => films.addAll(await _filmRepository.getFilms(arguments.films));
 }

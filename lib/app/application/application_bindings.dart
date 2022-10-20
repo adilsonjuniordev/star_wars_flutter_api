@@ -6,8 +6,8 @@ import 'package:star_wars_w2o/app/repository/character_repository/character_repo
 class ApplicationBindings implements Bindings {
   @override
   void dependencies() {
-    Get.put(() => CustomDio());
     Get.put(Dio());
+    Get.put(() => CustomDio());
     Get.put(() => CharacterRepositoryImpl(dio: Get.find()));
   }
 }

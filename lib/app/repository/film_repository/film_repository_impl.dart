@@ -1,10 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
-
 import 'package:star_wars_w2o/app/models/film_model.dart';
-
 import '../../core/exceptions/repository_exception.dart';
 import '../../core/ui/widgets/snackbars.dart';
 import './film_repository.dart';

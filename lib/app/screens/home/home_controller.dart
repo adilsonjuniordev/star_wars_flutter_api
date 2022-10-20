@@ -1,14 +1,13 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:star_wars_w2o/app/core/api/custom_dio.dart';
-import 'package:star_wars_w2o/app/core/ui/widgets/loader.dart';
-import 'package:star_wars_w2o/app/core/ui/widgets/snackbars.dart';
-import 'package:star_wars_w2o/app/models/character_model.dart';
-import 'package:star_wars_w2o/app/repository/character_repository/character_repository.dart';
-import 'package:star_wars_w2o/app/repository/character_repository/character_repository_impl.dart';
-
+import '../../core/api/custom_dio.dart';
+import '../../models/character_model.dart';
+import '../../core/ui/widgets/loader.dart';
+import '../../core/ui/widgets/snackbars.dart';
 import '../../core/exceptions/repository_exception.dart';
+import '../../repository/character_repository/character_repository.dart';
+import '../../repository/character_repository/character_repository_impl.dart';
 
 class HomeController extends GetxController {
   final dio = Dio();
@@ -18,10 +17,8 @@ class HomeController extends GetxController {
   final RxList<CharacterModel> _characters = <CharacterModel>[...Get.arguments['characters']].obs;
   final RxList<CharacterModel> _charactersFiltered = <CharacterModel>[].obs;
   final RxString query = ''.obs;
-
   String? _next = Get.arguments['next'];
   String? _nextFiltered = '';
-
   List<CharacterModel> get characters => _characters.toList();
   List<CharacterModel> get charactersFiltered => _charactersFiltered.toList();
 
@@ -69,10 +66,8 @@ class HomeController extends GetxController {
     if (query.isNotEmpty) {
       Get.dialog(const Loader(), barrierDismissible: false);
       var result = await characterRepository.getFilteredCharacters(query);
-
       _charactersFiltered.assignAll(result[0]);
       _nextFiltered = result[1];
-
       Get.back();
     }
   }

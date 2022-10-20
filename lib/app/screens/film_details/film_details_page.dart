@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:star_wars_w2o/app/core/ui/styles/colors_app.dart';
-import 'package:star_wars_w2o/app/core/ui/styles/text_styles.dart';
-import '../../core/ui/widgets/info_box.dart';
 import './film_details_controller.dart';
+import '../../core/ui/styles/colors_app.dart';
+import '../../core/ui/styles/text_styles.dart';
+import '../../core/ui/widgets/info_box.dart';
 
 class FilmDetailsPage extends GetView<FilmDetailsController> {
   const FilmDetailsPage({Key? key}) : super(key: key);
