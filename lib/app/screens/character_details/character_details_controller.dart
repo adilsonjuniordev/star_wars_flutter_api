@@ -13,18 +13,17 @@ class CharacterDetailsController extends GetxController with StateMixin {
   final _starshipRepository = Get.find<StarshipRepository>();
   final _filmRepository = Get.find<FilmRepository>();
 
-  RxBool viewType = true.obs;
   List<PlanetModel> planets = [];
   List<StarshipModel> starships = [];
-  RxList<FilmModel> films = <FilmModel>[].obs;
-
-  RxString name = ''.obs;
-  RxString gender = ''.obs;
-  RxString birthYear = ''.obs;
-  RxString homeworld = ''.obs;
-  RxString terrain = ''.obs;
-  RxString diameter = ''.obs;
-  RxString starship = ''.obs;
+  var viewType = true.obs;
+  var films = <FilmModel>[].obs;
+  var name = ''.obs;
+  var gender = ''.obs;
+  var birthYear = ''.obs;
+  var homeworld = ''.obs;
+  var terrain = ''.obs;
+  var diameter = ''.obs;
+  var starship = ''.obs;
 
   @override
   void onInit() async {

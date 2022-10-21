@@ -3,7 +3,7 @@ import '../../models/character_model.dart';
 import '../../repository/character_repository/character_repository_impl.dart';
 
 class SplashController extends GetxController {
-  RxList<CharacterModel> characters = <CharacterModel>[].obs;
+  final characters = <CharacterModel>[].obs;
   String next = '';
 
   @override

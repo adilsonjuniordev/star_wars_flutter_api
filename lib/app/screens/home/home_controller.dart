@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import '../../core/api/custom_dio.dart';
 import '../../models/character_model.dart';
@@ -7,18 +6,17 @@ import '../../core/ui/widgets/loader.dart';
 import '../../core/ui/widgets/snackbars.dart';
 import '../../core/exceptions/repository_exception.dart';
 import '../../repository/character_repository/character_repository.dart';
-import '../../repository/character_repository/character_repository_impl.dart';
 
 class HomeController extends GetxController {
-  final dio = Dio();
-  CharacterRepository characterRepository = CharacterRepositoryImpl(dio: Get.find());
-  CustomDio customDio = Get.find();
+  CharacterRepository characterRepository = Get.find();
+  CustomDio customDio = Get.find(tag: 'dio');
 
-  final RxList<CharacterModel> _characters = <CharacterModel>[...Get.arguments['characters']].obs;
-  final RxList<CharacterModel> _charactersFiltered = <CharacterModel>[].obs;
-  final RxString query = ''.obs;
   String? _next = Get.arguments['next'];
   String? _nextFiltered = '';
+  final _characters = <CharacterModel>[...Get.arguments['characters']].obs;
+  final _charactersFiltered = <CharacterModel>[].obs;
+  final query = ''.obs;
+
   List<CharacterModel> get characters => _characters.toList();
   List<CharacterModel> get charactersFiltered => _charactersFiltered.toList();
 
@@ -32,7 +30,7 @@ class HomeController extends GetxController {
     if (_next != null) {
       try {
         Get.dialog(const Loader(), barrierDismissible: false);
-        var result = await dio.get(_next!);
+        var result = await customDio.get(_next!);
         _characters.addAll(result.data['results'].map<CharacterModel>((c) => CharacterModel.fromMap(c)).toList());
         _next = result.data['next'];
         Get.back();
@@ -49,7 +47,7 @@ class HomeController extends GetxController {
     if (_nextFiltered != null) {
       try {
         Get.dialog(const Loader(), barrierDismissible: false);
-        var result = await dio.get(_nextFiltered!);
+        var result = await customDio.get(_nextFiltered!);
         _charactersFiltered.addAll(result.data['results'].map<CharacterModel>((c) => CharacterModel.fromMap(c)).toList());
         _nextFiltered = result.data['next'];
         Get.back();
