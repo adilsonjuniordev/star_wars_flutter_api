@@ -10,12 +10,13 @@ class Loader extends StatelessWidget {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.black45,
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(
-              color: Colors.white,
-              width: 0.5,
-            )),
+          color: Colors.black45,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(
+            color: Colors.white,
+            width: 0.5,
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(30),
           child: LoadingAnimationWidget.threeArchedCircle(
