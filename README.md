@@ -1,16 +1,28 @@
-# star_wars_w2o
+# Star Wars - App Flutter
 
-A new Flutter project.
+Projeto desenvolvido para realizar consulta dos personagens e seus detalhes.
+O aplicativo consome dados da SWAPI, uma API aberta sobre Star Wars.
 
-## Getting Started
+```sh
+> https://swapi.dev/documentation#start
+```
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+<p float="left">
+  <img src="assets/images/screenshots/splash.jpg" href="#" alt="Splash Page" width="240">
+    <img src="assets/images/screenshots/home.jpg" href="#" alt="Home Page" width="240">
+    <img src="assets/images/screenshots/character_details.jpg" href="#" alt="My Stickers Page" width="240">
+    <img src="assets/images/screenshots/character_details_table.jpg" href="#" alt="Login Page" width="240">
+    <img src="assets/images/screenshots/film_details.jpg" href="#" alt="Register Page" width="240">
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Packages utilizados
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Foram utilizados os packages abaixo para auxiliar na construção do projeto:
+
+- dio: ^4.0.6
+- get: ^4.6.5
+- flutter_dotenv: ^5.0.2
+- lazy_load_scrollview: ^1.3.0
+- loading_animation_widget: ^1.2.0+3
