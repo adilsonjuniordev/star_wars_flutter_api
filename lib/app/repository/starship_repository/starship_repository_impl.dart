@@ -17,7 +17,7 @@ class StarshipRepositoryImpl implements StarshipRepository {
       return [result.data].map<StarshipModel>((c) => StarshipModel.fromMap(c)).toList();
     } on DioError catch (e, s) {
       log('Erro ao pesquisar nave', error: e, stackTrace: s);
-      Snackbars().snackbarError('Oops..', 'Houve um erro ao pesquisar a nave');
+      Snackbars.error('Oops..', 'Houve um erro ao pesquisar a nave');
       throw RepositoryException(message: 'Houve um erro ao pesquisar a nave');
     }
   }

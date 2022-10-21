@@ -23,7 +23,7 @@ class FilmRepositoryImpl implements FilmRepository {
       return films;
     } on DioError catch (e, s) {
       log('Erro ao pesquisar planeta', error: e, stackTrace: s);
-      Snackbars().snackbarError('Oops..', 'Houve um erro ao pesquisar o planeta');
+      Snackbars.error('Oops..', 'Houve um erro ao pesquisar o planeta');
       throw RepositoryException(message: 'Houve um erro ao pesquisar o planeta');
     }
   }

@@ -39,7 +39,7 @@ class HomeController extends GetxController {
       } on Exception catch (e) {
         log('Erro ao buscar personagem', error: e);
         Get.back();
-        Snackbars().snackbarError('Oops..', 'Houve um erro ao buscar os dados');
+        Snackbars.error('Oops..', 'Houve um erro ao buscar os dados');
         throw RepositoryException(message: 'Houve um erro ao buscar os dados');
       }
     }
@@ -56,7 +56,7 @@ class HomeController extends GetxController {
       } on Exception catch (e) {
         log('Erro ao buscar mais personages pelo filtro', error: e);
         Get.back();
-        Snackbars().snackbarError('Oops..', 'Houve um rro ao buscar mais personages pelo filtro');
+        Snackbars.error('Oops..', 'Houve um rro ao buscar mais personages pelo filtro');
         throw RepositoryException(message: 'Houve um erro ao buscar mais personages pelo filtro');
       }
     }
