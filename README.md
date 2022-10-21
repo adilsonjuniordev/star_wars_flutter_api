@@ -1,7 +1,8 @@
 # Star Wars - App Flutter
 
-Projeto desenvolvido para realizar consulta dos personagens e seus detalhes.
-O aplicativo consome dados da SWAPI, uma API aberta sobre Star Wars.
+Projeto desenvolvido para realizar consulta dos personagens do Star Wars e seus detalhes.
+
+> O aplicativo consome dados da SWAPI, uma API aberta sobre Star Wars.
 
 ```sh
 > https://swapi.dev/documentation#start
