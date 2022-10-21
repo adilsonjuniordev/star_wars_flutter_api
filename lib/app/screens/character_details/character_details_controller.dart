@@ -1,17 +1,17 @@
 import 'package:get/get.dart';
+import 'package:star_wars_w2o/app/repository/film_repository/film_repository.dart';
+import 'package:star_wars_w2o/app/repository/planet_repository/planet_repository.dart';
+import 'package:star_wars_w2o/app/repository/starship_repository/starship_repository.dart';
 import '../../models/planet_model.dart';
 import '../../models/character_model.dart';
 import '../../models/film_model.dart';
 import '../../models/starship_model.dart';
-import '../../repository/film_repository/film_repository_impl.dart';
-import '../../repository/planet_repository/planet_repository_impl.dart';
-import '../../repository/starship_repository/starship_repository_impl.dart';
 
 class CharacterDetailsController extends GetxController with StateMixin {
   final CharacterModel arguments = Get.arguments;
-  final _planetRepository = PlanetRepositoryImpl(dio: Get.find());
-  final _starshipRepository = StarshipRepositoryImpl(dio: Get.find());
-  final _filmRepository = FilmRepositoryImpl(dio: Get.find());
+  final _planetRepository = Get.find<PlanetRepository>();
+  final _starshipRepository = Get.find<StarshipRepository>();
+  final _filmRepository = Get.find<FilmRepository>();
 
   RxBool viewType = true.obs;
   List<PlanetModel> planets = [];

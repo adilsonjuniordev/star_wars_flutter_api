@@ -4,7 +4,7 @@ import 'package:dio/native_imp.dart';
 import '../config/env/env.dart';
 
 class CustomDio extends DioForNative {
-  CustomDio()
+  CustomDio([String? baseUrl])
       : super(BaseOptions(
           baseUrl: Env.i['backend_base_url'] ?? '',
           connectTimeout: 4000,

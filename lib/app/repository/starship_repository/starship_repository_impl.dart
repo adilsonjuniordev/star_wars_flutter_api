@@ -1,12 +1,13 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
+import 'package:star_wars_w2o/app/core/api/custom_dio.dart';
 import 'package:star_wars_w2o/app/models/starship_model.dart';
 import '../../core/exceptions/repository_exception.dart';
 import '../../core/ui/widgets/snackbars.dart';
 import './starship_repository.dart';
 
 class StarshipRepositoryImpl implements StarshipRepository {
-  final Dio dio;
+  final CustomDio dio;
 
   StarshipRepositoryImpl({required this.dio});
 

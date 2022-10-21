@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Snackbars {
-  static error(String title, String message) {
-    return Get.snackbar(
+  static void error(String title, String message) {
+    Get.snackbar(
       '',
       '',
       titleText: Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),

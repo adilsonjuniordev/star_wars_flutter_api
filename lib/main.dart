@@ -33,11 +33,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialBinding: ApplicationBindings(),
       getPages: [
-        GetPage(name: '/', page: () => const SplashPage(), binding: SplashBindings(), children: [
-          GetPage(name: '/home', page: () => HomePage(), binding: HomeBindings()),
-          GetPage(name: '/film_details', page: () => const FilmDetailsPage(), binding: FilmDetailsBindings()),
-          GetPage(name: '/character_details', page: () => const CharacterDetailsPage(), binding: CharacterDetailsBindings()),
-        ]),
+        GetPage(name: '/', page: () => const SplashPage(), binding: SplashBindings()),
+        GetPage(name: '/home', page: () => HomePage(), binding: HomeBindings()),
+        GetPage(name: '/film_details', page: () => const FilmDetailsPage(), binding: FilmDetailsBindings()),
+        GetPage(name: '/character_details', page: () => const CharacterDetailsPage(), binding: CharacterDetailsBindings()),
       ],
     );
   }
