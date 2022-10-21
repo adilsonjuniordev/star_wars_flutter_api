@@ -5,7 +5,7 @@ Projeto desenvolvido para realizar consulta dos personagens do Star Wars e seus 
 > O aplicativo consome dados da SWAPI, uma API aberta sobre Star Wars.
 
 ```sh
-> https://swapi.dev/documentation#start
+> [**https://swapi.dev/documentation#start**](https://swapi.dev/documentation#start)
 ```
 
 ## Screenshots
