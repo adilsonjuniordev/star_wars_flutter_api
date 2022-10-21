@@ -12,10 +12,11 @@ class HomeController extends GetxController {
   CustomDio customDio = Get.find(tag: 'dio');
 
   String? _next = Get.arguments['next'];
-  String? _nextFiltered = '';
   final _characters = <CharacterModel>[...Get.arguments['characters']].obs;
+
+  String? _nextFiltered = '';
   final _charactersFiltered = <CharacterModel>[].obs;
-  final query = ''.obs;
+  var query = ''.obs;
 
   List<CharacterModel> get characters => _characters.toList();
   List<CharacterModel> get charactersFiltered => _charactersFiltered.toList();
