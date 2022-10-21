@@ -163,10 +163,10 @@ class CharacterDetailsPage extends GetView<CharacterDetailsController> {
                             ),
                             onTap: () => Get.toNamed(
                               '/film_details',
-                              arguments: [
-                                controller.films[index],
-                                controller.name.value,
-                              ],
+                              arguments: {
+                                'film': controller.films[index],
+                                'character_name': controller.name.value,
+                              },
                             ),
                           );
                         },

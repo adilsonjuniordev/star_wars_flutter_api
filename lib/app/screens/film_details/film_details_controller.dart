@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import '../../models/film_model.dart';
 
 class FilmDetailsController extends GetxController {
-  List<dynamic> arguments = Get.arguments;
+  Map args = Get.arguments;
   var characterName = ''.obs;
   var title = ''.obs;
   var director = ''.obs;
@@ -11,8 +11,8 @@ class FilmDetailsController extends GetxController {
 
   @override
   void onInit() {
-    FilmModel film = arguments[0];
-    characterName.value = arguments[1];
+    FilmModel film = args['film'];
+    characterName.value = args['character_name'];
     title.value = film.title;
     director.value = film.director;
     releaseDate.value = film.releaseDate;

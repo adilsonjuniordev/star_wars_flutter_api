@@ -8,11 +8,12 @@ import '../../core/exceptions/repository_exception.dart';
 import '../../repository/character_repository/character_repository.dart';
 
 class HomeController extends GetxController {
+  Map args = Get.arguments;
   CharacterRepository characterRepository = Get.find();
   CustomDio customDio = Get.find(tag: 'dio');
 
-  String? _next = Get.arguments['next'];
-  final _characters = <CharacterModel>[...Get.arguments['characters']].obs;
+  var _next = '';
+  final _characters = <CharacterModel>[].obs;
 
   String? _nextFiltered = '';
   final _charactersFiltered = <CharacterModel>[].obs;
@@ -23,7 +24,9 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    debounce(query, (_) => search(query.value), time: const Duration(milliseconds: 500));
+    _next = args['next'];
+    _characters.addAll(args['characters']);
+    debounce(query, (_) => search(query.value), time: const Duration(milliseconds: 800));
     super.onInit();
   }
 
