@@ -12,12 +12,11 @@ class HomeController extends GetxController {
   CharacterRepository characterRepository = Get.find();
   CustomDio customDio = Get.find(tag: 'dio');
 
-  var _next = '';
-  final _characters = <CharacterModel>[].obs;
-
+  String? _next;
   String? _nextFiltered = '';
-  final _charactersFiltered = <CharacterModel>[].obs;
   var query = ''.obs;
+  final _characters = <CharacterModel>[].obs;
+  final _charactersFiltered = <CharacterModel>[].obs;
 
   List<CharacterModel> get characters => _characters.toList();
   List<CharacterModel> get charactersFiltered => _charactersFiltered.toList();
@@ -34,7 +33,7 @@ class HomeController extends GetxController {
     if (_next != null) {
       try {
         Get.dialog(const Loader(), barrierDismissible: false);
-        var result = await customDio.get(_next!);
+        var result = await customDio.get(_next ?? '');
         _characters.addAll(result.data['results'].map<CharacterModel>((c) => CharacterModel.fromMap(c)).toList());
         _next = result.data['next'];
         Get.back();
