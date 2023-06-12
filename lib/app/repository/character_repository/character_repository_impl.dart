@@ -19,7 +19,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
         result.data['results'].map<CharacterModel>((c) => CharacterModel.fromMap(c)).toList(),
         result.data['next'],
       ];
-    } on DioError catch (e, s) {
+    } on DioException catch (e, s) {
       log('Erro ao buscar personagem', error: e, stackTrace: s);
       Snackbars.error('Oops..', 'Houve um erro ao buscar os personagens');
       throw RepositoryException(message: 'Houve um erro ao buscar os personagens');
@@ -37,7 +37,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
         result.data['results'].map<CharacterModel>((c) => CharacterModel.fromMap(c)).toList(),
         result.data['next'],
       ];
-    } on DioError catch (e, s) {
+    } on DioException catch (e, s) {
       log('Erro ao pesquisar personagem', error: e, stackTrace: s);
       Snackbars.error('Oops..', 'Houve um erro ao pesquisar os personagens');
       throw RepositoryException(message: 'Houve um erro ao pesquisar os personagens');

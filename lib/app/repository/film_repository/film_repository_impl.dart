@@ -22,7 +22,7 @@ class FilmRepositoryImpl implements FilmRepository {
         films.add(FilmModel.fromMap(result.data));
       }
       return films;
-    } on DioError catch (e, s) {
+    } on DioException catch (e, s) {
       log('Erro ao pesquisar planeta', error: e, stackTrace: s);
       Snackbars.error('Oops..', 'Houve um erro ao pesquisar o planeta');
       throw RepositoryException(message: 'Houve um erro ao pesquisar o planeta');

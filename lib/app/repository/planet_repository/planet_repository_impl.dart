@@ -16,7 +16,7 @@ class PlanetRepositoryImpl implements PlanetRepository {
     try {
       var result = await dio.get(url, queryParameters: {'format': 'json'});
       return [result.data].map<PlanetModel>((c) => PlanetModel.fromMap(c)).toList();
-    } on DioError catch (e, s) {
+    } on DioException catch (e, s) {
       log('Erro ao pesquisar planeta', error: e, stackTrace: s);
       Snackbars.error('Oops..', 'Houve um erro ao pesquisar o planeta');
       throw RepositoryException(message: 'Houve um erro ao pesquisar o planeta');

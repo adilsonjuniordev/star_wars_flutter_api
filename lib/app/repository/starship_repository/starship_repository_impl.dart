@@ -16,7 +16,7 @@ class StarshipRepositoryImpl implements StarshipRepository {
     try {
       var result = await dio.get(url, queryParameters: {'format': 'json'});
       return [result.data].map<StarshipModel>((c) => StarshipModel.fromMap(c)).toList();
-    } on DioError catch (e, s) {
+    } on DioException catch (e, s) {
       log('Erro ao pesquisar nave', error: e, stackTrace: s);
       Snackbars.error('Oops..', 'Houve um erro ao pesquisar a nave');
       throw RepositoryException(message: 'Houve um erro ao pesquisar a nave');
